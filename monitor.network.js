@@ -1,3 +1,9 @@
+/*
+	netstat -e
+	netstat -an | find "TCP" /c
+	netstat -an | find "UDP" /c
+ */
+
 var clone = function(target) {
 	if(typeof(target) == 'object') {
 		var rs = Array.isArray(target)? []: {};
