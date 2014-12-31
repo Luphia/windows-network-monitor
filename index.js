@@ -1,4 +1,4 @@
-var io = require('socket.io-client')('http://simple.tanpopo.cc/');
+var io = require('socket.io-client')('http://simple.tanpopo.cc/trafficCloud');
 var Collector = require('./monitor.network.js');
 var collector = new Collector();
 var now = new Date() - 10000;
@@ -6,7 +6,7 @@ var now = new Date() - 10000;
 io.on('enter', function() {
 	console.log('%d new enter', new Date());
 	console.log('%d send summary', new Date());
-	io.emit('summary', collector.getSummary);
+	io.emit('summary', collector.getSummary());
 });
 
 setInterval(function() {
