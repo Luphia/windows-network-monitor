@@ -92,9 +92,9 @@ Collector.prototype.getCurrent = function() {
 
 	var timestamp = this.rx[0].time * 1;
 	var current = {
-		"in": rx,
-		"out": tx,
-		"session": this.session[0]
+		"in": [rx, timestamp],
+		"out": [tx, timestamp],
+		"session": [this.session[0], timestamp]
 	};
 	
 	return current;
@@ -115,9 +115,9 @@ Collector.prototype.getHistory = function() {
 		if(!(tx > 0)) { tx = 0; }
 		var timestamp = this.rx[i].time * 1;
 		
-		history.in.push(rx);
-		history.out.push(tx);
-		history.session.push(this.session[i]);
+		history.in.push([rx, timestamp]);
+		history.out.push([tx, timestamp]);
+		history.session.push([this.session[i], timestamp]);
 	}
 	
 	return history;
