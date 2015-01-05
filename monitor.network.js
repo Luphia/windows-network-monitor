@@ -84,7 +84,7 @@ Collector.prototype.pushSession = function(data) {
 
 Collector.prototype.getCurrent = function() {
 	var rx = parseInt((this.rx[0].byte - this.rx[1].byte) * 1000 / (this.rx[0].time - this.rx[1].time))
-	,	tx = parseInt((this.rx[0].byte - this.rx[1].byte) * 1000 / (this.rx[0].time - this.rx[1].time))
+	,	tx = parseInt((this.tx[0].byte - this.tx[1].byte) * 1000 / (this.tx[0].time - this.tx[1].time))
 	;
 	
 	if(!(rx > 0)) { rx = 0; }
